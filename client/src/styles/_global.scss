@@ -1,0 +1,139 @@
+:root {
+  --primary: #4cf0a0;
+  --primary-100: #1aec831a;
+  --text: #bebec2;
+  --white: #fff;
+  --black: #000;
+  --main-bg: #101014;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Changa", sans-serif;
+  background: var(--main-bg);
+  font-size: 1.6rem;
+  color: var(--text);
+}
+
+p,
+span,
+li,
+td {
+  font-family: "Mulish", sans-serif;
+  color: var(--text);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong {
+  font-family: "Changa", sans-serif;
+  color: var(--white);
+  font-weight: 700;
+}
+
+h1 {
+  font-size: clamp(4rem, calc(4rem + 16 * (100vw - 375px) / 1065), 5.6rem);
+}
+
+h2 {
+  font-size: clamp(3.6rem, calc(3.2rem + 12 * (100vw - 375px) / 1065), 4rem);
+}
+
+h3 {
+  font-size: clamp(2.8rem, calc(2.8rem + 4 * (100vw - 375px) / 1065), 3.2rem);
+}
+
+h4 {
+  font-size: clamp(2.4rem, calc(2.4rem + 2 * (100vw - 375px) / 1065), 2.8rem);
+}
+
+h5 {
+  font-size: clamp(2rem, calc(2rem + 2 * (100vw - 375px) / 1065), 2.4rem);
+}
+
+h6 {
+  font-size: clamp(1.6rem, calc(1.6rem + 2 * (100vw - 375px) / 1065), 2rem);
+}
+
+.styled-ul {
+  ul {
+    padding-left: 3.2rem;
+    list-style: none;
+    li {
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        width: 2rem;
+        height: 2rem;
+        top: 2px;
+        left: -2.4rem;
+        background: url(../../assets/images/icons/list-style.svg);
+      }
+    }
+  }
+}
+
+.styled-table {
+  table {
+    border-radius: 1.6rem;
+    overflow: hidden;
+    tr {
+      th {
+        font-size: 2.4rem;
+        color: var(--black);
+      }
+      th,
+      td {
+        padding: 0.8rem 1.2rem;
+      }
+      td {
+        font-size: 1.6rem;
+      }
+
+      &:first-child {
+        background: var(--primary);
+      }
+      &:not(:first-child) {
+        &:nth-child(2n) {
+          background: var(--primary-100);
+        }
+      }
+    }
+  }
+}
+
+.section-title {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 400;
+    color: var(--white);
+    span {
+      font-family: "Changa", sans-serif;
+      font-weight: 700;
+      display: block;
+      font-size: 60px;
+      color: var(--primary);
+      letter-spacing: 2px;
+      line-height: 100%;
+    }
+  }
+}
