@@ -1,10 +1,17 @@
 export default function App() {
   return (
     <>
+      <div className="title">
+        <h1>
+          <span>CPUZ: </span>
+          THE BEST MARKETPLACE
+        </h1>
+      </div>
+
       <div className="section-title">
         <h2>
           <span>CPUZ: </span>
-          The best marketplace
+          THE BEST MARKETPLACE
         </h2>
       </div>
 

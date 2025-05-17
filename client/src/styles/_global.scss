@@ -1,10 +1,11 @@
 :root {
-  --primary: #4cf0a0;
-  --primary-100: #1aec831a;
+  --primary: #26bbff;
+  --primary-100: #26bbff1a;
   --text: #bebec2;
   --white: #fff;
   --black: #000;
   --main-bg: #101014;
+  --light-bg: #404044;
 }
 
 html {
@@ -19,7 +20,7 @@ html {
 }
 
 body {
-  font-family: "Changa", sans-serif;
+  font-family: "Mulish", sans-serif;
   background: var(--main-bg);
   font-size: 1.6rem;
   color: var(--text);
@@ -29,7 +30,6 @@ p,
 span,
 li,
 td {
-  font-family: "Mulish", sans-serif;
   color: var(--text);
 }
 
@@ -40,7 +40,7 @@ h4,
 h5,
 h6,
 strong {
-  font-family: "Changa", sans-serif;
+  font-family: "Red Rose", serif;
   color: var(--white);
   font-weight: 700;
 }
@@ -84,6 +84,9 @@ h6 {
         left: -2.4rem;
         background: url(../../assets/images/icons/list-style.svg);
       }
+      &:not(:last-child) {
+        margin-bottom: 0.4rem;
+      }
     }
   }
 }
@@ -117,20 +120,31 @@ h6 {
   }
 }
 
+.title {
+  h1 {
+    font-weight: 300;
+    color: var(--white);
+    span {
+      font-weight: 700;
+      font-size: 7.2rem;
+      color: var(--primary);
+      letter-spacing: 2px;
+      line-height: 100%;
+    }
+  }
+}
+
 .section-title {
-  h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    font-weight: 400;
+    font-weight: 300;
     color: var(--white);
     span {
-      font-family: "Changa", sans-serif;
       font-weight: 700;
-      display: block;
-      font-size: 60px;
+      font-size: 4rem;
       color: var(--primary);
       letter-spacing: 2px;
       line-height: 100%;
