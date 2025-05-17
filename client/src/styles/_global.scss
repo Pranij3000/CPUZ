@@ -1,11 +1,53 @@
 :root {
-  --primary: #26bbff;
-  --primary-100: #26bbff1a;
+  --primary: #2ecc71;
+  --primary-100: #2ecc711a;
+  --secondary: #0b1c4a;
   --text: #bebec2;
   --white: #fff;
   --black: #000;
   --main-bg: #101014;
   --light-bg: #404044;
+}
+
+$theme-color: (
+  "primary": var(--primary),
+  "primary-100": var(--primary-100),
+  "secondary": var(--secondary),
+  "text": var(--text),
+  "white": var(--white),
+  "black": var(--black),
+  "main-bg": var(--main-bg),
+  "light-bg": var(--light-bg),
+);
+
+$border-colors: (
+  "black-100": var(--black-100),
+  "primary": var(--primary),
+  "light-bg": var(--light-bg),
+);
+
+@each $color, $value in $theme-color {
+  .bg-#{$color} {
+    background: #{$value} !important;
+  }
+
+  .text-#{$color} {
+    color: #{$value} !important;
+  }
+}
+
+@each $border-color, $value in $border-colors {
+  .border-#{$border-color} {
+    border: 1px solid #{$value} !important;
+  }
+
+  .border-top-#{$border-color} {
+    border-top: 1px solid #{$value} !important;
+  }
+
+  .border-bottom-#{$border-color} {
+    border-bottom: 1px solid #{$value} !important;
+  }
 }
 
 html {
@@ -29,8 +71,12 @@ body {
 p,
 span,
 li,
-td {
+td,
+a {
+  text-decoration: none;
   color: var(--text);
+  margin: 0;
+  padding: 0;
 }
 
 h1,
@@ -46,7 +92,7 @@ strong {
 }
 
 h1 {
-  font-size: clamp(4rem, calc(4rem + 16 * (100vw - 375px) / 1065), 5.6rem);
+  font-size: clamp(4rem, calc(4rem + 16 * (100vw - 375px) / 1065), 5.2rem);
 }
 
 h2 {
@@ -78,8 +124,8 @@ h6 {
       &::before {
         content: "";
         position: absolute;
-        width: 2rem;
-        height: 2rem;
+        width: 1.6rem;
+        height: 1.6rem;
         top: 2px;
         left: -2.4rem;
         background: url(../../assets/images/icons/list-style.svg);
@@ -93,7 +139,7 @@ h6 {
 
 .styled-table {
   table {
-    border-radius: 1.6rem;
+    border-radius: 0.8rem;
     overflow: hidden;
     tr {
       th {
@@ -112,7 +158,7 @@ h6 {
         background: var(--primary);
       }
       &:not(:first-child) {
-        &:nth-child(2n) {
+        &:nth-child(2n + 1) {
           background: var(--primary-100);
         }
       }
@@ -132,6 +178,11 @@ h6 {
       line-height: 100%;
     }
   }
+  &.title-white {
+    span {
+      color: var(--white);
+    }
+  }
 }
 
 .section-title {
@@ -144,7 +195,7 @@ h6 {
     color: var(--white);
     span {
       font-weight: 700;
-      font-size: 4rem;
+      font-size: 5.2rem;
       color: var(--primary);
       letter-spacing: 2px;
       line-height: 100%;
