@@ -1,11 +1,11 @@
-import Topbar from "./template-parts/Topbar";
-import Header from "./template-parts/Header";
+import Topbar from "./sections/Topbar";
+import Header from "./sections/Header";
 
 export default function App() {
-  return (
-    <>
-      <Topbar></Topbar>
-      <Header></Header>
-    </>
-  );
+	return (
+		<>
+			<Topbar></Topbar>
+			<Header></Header>
+		</>
+	);
 }
