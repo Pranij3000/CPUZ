@@ -1,10 +1,10 @@
 import "./SimpleButton.scss";
 import { Link } from "react-router-dom";
 
-export default function SimpleButton({ placeholder, link }) {
+export default function SimpleButton({ placeholder, path }) {
   return (
     <>
-      <Link to={link} className="simple-button text-text px-12 py-4">
+      <Link to={path} className="simple-button text-text px-12 py-4">
         {placeholder}
       </Link>
     </>

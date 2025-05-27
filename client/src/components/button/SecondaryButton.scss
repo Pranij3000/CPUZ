@@ -1,9 +1,9 @@
 .secondary-button {
-	transition: all 0.3s ease-in-out;
-	&:hover {
-		background: var(--primary);
-		border-color: transparent !important;
-		color: var(--black) !important;
-		filter: brightness(1.5);
-	}
+  transition: all 0.3s ease-in-out;
+  font-size: 20px;
+  &:hover {
+    background: var(--primary);
+    border-color: transparent !important;
+    color: var(--black) !important;
+  }
 }

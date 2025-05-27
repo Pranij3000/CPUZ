@@ -9,17 +9,17 @@ import "./Topbar.scss";
 export default function Topbar() {
   return (
     <>
-      <nav className="topbar bg-main-bg border-bottom-light-bg py-4 d-none d-sm-block">
+      <header className="topbar bg-main-bg py-4 d-none d-sm-block">
         <div className="container">
           <div className="topbar-wrapper d-flex align-items-center justify-content-between">
             <NeedHelp></NeedHelp>
             <div className="button-wrapper d-flex align-items-center">
-              <SimpleButton placeholder="Sign Up" link="/register"></SimpleButton>
-              <SimpleButton placeholder="Log in" link="/login"></SimpleButton>
+              <SimpleButton placeholder="Sign Up" path="/register"></SimpleButton>
+              <SimpleButton placeholder="Log in" path="/login"></SimpleButton>
             </div>
           </div>
         </div>
-      </nav>
+      </header>
     </>
   );
 }
