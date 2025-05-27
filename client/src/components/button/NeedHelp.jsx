@@ -5,7 +5,7 @@ export default function NeedHelp() {
     <>
       <p className="need-help">
         Need Help?
-        <a href="#" class="contact-us">
+        <a href="#" className="contact-us">
           {" "}
           Contact Us
         </a>
