@@ -1,0 +1,14 @@
+.header {
+  .header-wrapper {
+    .header-logo-wrapper {
+      width: 14rem;
+    }
+    .hamburger-menu {
+      svg {
+        line {
+          fill: var(--white);
+        }
+      }
+    }
+  }
+}

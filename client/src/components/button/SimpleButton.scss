@@ -1,7 +1,7 @@
 .simple-button {
-	transition: all 0.3s ease-in-out;
-	&:hover {
-		color: var(--white) !important;
-		text-decoration: underline;
-	}
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    color: var(--primary) !important;
+    text-decoration: underline;
+  }
 }

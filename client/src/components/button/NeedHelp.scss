@@ -1,9 +1,10 @@
 .need-help {
-	.contact-us {
-		color: var(--primary);
-		transition: all 0.3s ease-in-out;
-		&:hover {
-			filter: brightness(1.5);
-		}
-	}
+  .contact-us {
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      filter: brightness(1.5);
+      color: var(--primary) !important;
+      text-decoration: underline;
+    }
+  }
 }

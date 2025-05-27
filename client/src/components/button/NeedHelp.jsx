@@ -1,14 +1,14 @@
 import "./NeedHelp.scss";
+import { Link } from "react-router-dom";
 
 export default function NeedHelp() {
   return (
     <>
-      <p className="need-help">
+      <p className="need-help text-text">
         Need Help?
-        <a href="#" className="contact-us">
-          {" "}
+        <Link to="/contact-us" className="ml-4 contact-us text-text">
           Contact Us
-        </a>
+        </Link>
       </p>
     </>
   );
