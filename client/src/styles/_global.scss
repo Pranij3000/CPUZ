@@ -1,71 +1,71 @@
 :root {
-  --primary: #2ecc71;
-  --primary-100: #2ecc711a;
-  --secondary: #0b1c4a;
-  --text: #bebec2;
-  --white: #fff;
-  --black: #000;
-  --main-bg: #101014;
-  --light-bg: #404044;
+	--primary: #2ecc71;
+	--primary-100: #2ecc711a;
+	--secondary: #0b1c4a;
+	--text: #bebec2;
+	--white: #fff;
+	--black: #000;
+	--main-bg: #101014;
+	--light-bg: #404044;
 }
 
 $theme-color: (
-  "primary": var(--primary),
-  "primary-100": var(--primary-100),
-  "secondary": var(--secondary),
-  "text": var(--text),
-  "white": var(--white),
-  "black": var(--black),
-  "main-bg": var(--main-bg),
-  "light-bg": var(--light-bg),
+	"primary": var(--primary),
+	"primary-100": var(--primary-100),
+	"secondary": var(--secondary),
+	"text": var(--text),
+	"white": var(--white),
+	"black": var(--black),
+	"main-bg": var(--main-bg),
+	"light-bg": var(--light-bg),
 );
 
 $border-colors: (
-  "black-100": var(--black-100),
-  "primary": var(--primary),
-  "light-bg": var(--light-bg),
+	"black-100": var(--black-100),
+	"primary": var(--primary),
+	"light-bg": var(--light-bg),
 );
 
 @each $color, $value in $theme-color {
-  .bg-#{$color} {
-    background: #{$value} !important;
-  }
+	.bg-#{$color} {
+		background: #{$value} !important;
+	}
 
-  .text-#{$color} {
-    color: #{$value} !important;
-  }
+	.text-#{$color} {
+		color: #{$value} !important;
+	}
 }
 
 @each $border-color, $value in $border-colors {
-  .border-#{$border-color} {
-    border: 1px solid #{$value} !important;
-  }
+	.border-#{$border-color} {
+		border: 1px solid #{$value} !important;
+	}
 
-  .border-top-#{$border-color} {
-    border-top: 1px solid #{$value} !important;
-  }
+	.border-top-#{$border-color} {
+		border-top: 1px solid #{$value} !important;
+	}
 
-  .border-bottom-#{$border-color} {
-    border-bottom: 1px solid #{$value} !important;
-  }
+	.border-bottom-#{$border-color} {
+		border-bottom: 1px solid #{$value} !important;
+	}
 }
 
 html {
-  font-size: 62.5%;
+	font-size: 62.5%;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
 }
 
 body {
-  font-family: "Mulish", sans-serif;
-  background: var(--main-bg);
-  font-size: 1.6rem;
-  color: var(--text);
+	font-family: "Mulish", sans-serif;
+	background: var(--main-bg);
+	font-size: 1.4rem;
+	color: var(--text);
 }
 
 p,
@@ -73,10 +73,11 @@ span,
 li,
 td,
 a {
-  text-decoration: none;
-  color: var(--text);
-  margin: 0;
-  padding: 0;
+	text-decoration: none;
+	color: var(--text);
+	margin: 0;
+	padding: 0;
+	line-height: 100%;
 }
 
 h1,
@@ -86,119 +87,119 @@ h4,
 h5,
 h6,
 strong {
-  font-family: "Red Rose", serif;
-  color: var(--white);
-  font-weight: 700;
+	font-family: "Red Rose", serif;
+	color: var(--white);
+	font-weight: 700;
 }
 
 h1 {
-  font-size: clamp(4rem, calc(4rem + 16 * (100vw - 375px) / 1065), 5.2rem);
+	font-size: clamp(4rem, calc(4rem + 16 * (100vw - 375px) / 1065), 5.2rem);
 }
 
 h2 {
-  font-size: clamp(3.6rem, calc(3.2rem + 12 * (100vw - 375px) / 1065), 4rem);
+	font-size: clamp(3.6rem, calc(3.2rem + 12 * (100vw - 375px) / 1065), 4rem);
 }
 
 h3 {
-  font-size: clamp(2.8rem, calc(2.8rem + 4 * (100vw - 375px) / 1065), 3.2rem);
+	font-size: clamp(2.8rem, calc(2.8rem + 4 * (100vw - 375px) / 1065), 3.2rem);
 }
 
 h4 {
-  font-size: clamp(2.4rem, calc(2.4rem + 2 * (100vw - 375px) / 1065), 2.8rem);
+	font-size: clamp(2.4rem, calc(2.4rem + 2 * (100vw - 375px) / 1065), 2.8rem);
 }
 
 h5 {
-  font-size: clamp(2rem, calc(2rem + 2 * (100vw - 375px) / 1065), 2.4rem);
+	font-size: clamp(2rem, calc(2rem + 2 * (100vw - 375px) / 1065), 2.4rem);
 }
 
 h6 {
-  font-size: clamp(1.6rem, calc(1.6rem + 2 * (100vw - 375px) / 1065), 2rem);
+	font-size: clamp(1.6rem, calc(1.6rem + 2 * (100vw - 375px) / 1065), 2rem);
 }
 
 .styled-ul {
-  ul {
-    padding-left: 3.2rem;
-    list-style: none;
-    li {
-      position: relative;
-      &::before {
-        content: "";
-        position: absolute;
-        width: 1.6rem;
-        height: 1.6rem;
-        top: 2px;
-        left: -2.4rem;
-        background: url(../../assets/images/icons/list-style.svg);
-      }
-      &:not(:last-child) {
-        margin-bottom: 0.4rem;
-      }
-    }
-  }
+	ul {
+		padding-left: 3.2rem;
+		list-style: none;
+		li {
+			position: relative;
+			&::before {
+				content: "";
+				position: absolute;
+				width: 1.6rem;
+				height: 1.6rem;
+				top: 2px;
+				left: -2.4rem;
+				background: url(../../assets/images/icons/list-style.svg);
+			}
+			&:not(:last-child) {
+				margin-bottom: 0.4rem;
+			}
+		}
+	}
 }
 
 .styled-table {
-  table {
-    border-radius: 0.8rem;
-    overflow: hidden;
-    tr {
-      th {
-        font-size: 2.4rem;
-        color: var(--black);
-      }
-      th,
-      td {
-        padding: 0.8rem 1.2rem;
-      }
-      td {
-        font-size: 1.6rem;
-      }
+	table {
+		border-radius: 0.8rem;
+		overflow: hidden;
+		tr {
+			th {
+				font-size: 2.4rem;
+				color: var(--black);
+			}
+			th,
+			td {
+				padding: 0.8rem 1.2rem;
+			}
+			td {
+				font-size: 1.6rem;
+			}
 
-      &:first-child {
-        background: var(--primary);
-      }
-      &:not(:first-child) {
-        &:nth-child(2n + 1) {
-          background: var(--primary-100);
-        }
-      }
-    }
-  }
+			&:first-child {
+				background: var(--primary);
+			}
+			&:not(:first-child) {
+				&:nth-child(2n + 1) {
+					background: var(--primary-100);
+				}
+			}
+		}
+	}
 }
 
 .title {
-  h1 {
-    font-weight: 300;
-    color: var(--white);
-    span {
-      font-weight: 700;
-      font-size: 7.2rem;
-      color: var(--primary);
-      letter-spacing: 2px;
-      line-height: 100%;
-    }
-  }
-  &.title-white {
-    span {
-      color: var(--white);
-    }
-  }
+	h1 {
+		font-weight: 300;
+		color: var(--white);
+		span {
+			font-weight: 700;
+			font-size: 7.2rem;
+			color: var(--primary);
+			letter-spacing: 2px;
+			line-height: 100%;
+		}
+	}
+	&.title-white {
+		span {
+			color: var(--white);
+		}
+	}
 }
 
 .section-title {
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-weight: 300;
-    color: var(--white);
-    span {
-      font-weight: 700;
-      font-size: 5.2rem;
-      color: var(--primary);
-      letter-spacing: 2px;
-      line-height: 100%;
-    }
-  }
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-weight: 300;
+		color: var(--white);
+		span {
+			font-weight: 700;
+			font-size: 5.2rem;
+			color: var(--primary);
+			letter-spacing: 2px;
+			line-height: 100%;
+		}
+	}
 }
