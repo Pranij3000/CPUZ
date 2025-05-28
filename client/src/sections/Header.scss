@@ -107,6 +107,9 @@
 		.menu-wrapper {
 			transform: translate(0);
 		}
+		.overlay {
+			backdrop-filter: blur(12px);
+		}
 	}
 }
 
