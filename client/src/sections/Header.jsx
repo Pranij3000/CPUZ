@@ -2,6 +2,7 @@ import "./Header.scss";
 import SecondaryButton from "../components/button/SecondaryButton.jsx";
 import PrimaryButton from "../components/button/PrimaryButton.jsx";
 import NavbarLink from "../components/button/NavbarLink.jsx";
+import Overlay from "../components/backgrounds/Overlay.jsx";
 
 //REACT COMPONENTS
 import { Link } from "react-router-dom";
@@ -33,19 +34,19 @@ export default function Header() {
 				<div className="container">
 					<div className="header-wrapper">
 						<div className="row">
-							<div className="col-4 col-lg-4">
+							<div className="col-4 col-lg-2">
 								<Link to="/" className="header-logo-wrapper d-block ml-4">
 									<LogoWhite></LogoWhite>
 								</Link>
 							</div>
-							<div className="col-8 col-lg-8">
+							<div className="col-8 col-lg-7">
 								<div className="hamburger-menu-wrapper d-flex justify-content-end align-items-center d-lg-none">
 									<button className="hamburger-menu mx-16" onClick={menuToggle}>
 										<HamburgerIcon></HamburgerIcon>
 									</button>
 								</div>
-								<div className="navbar-lg-screen d-none d-lg-block">
-									<ul className="nav-lg-links d-flex align-items-center justify-content-between">
+								<div className="navbar-lg-screen d-none d-lg-flex align-items-center">
+									<ul className="nav-lg-links d-flex align-items-center justify-content-center">
 										<NavbarLink path="/build-your-pc" label="Build Your PC"></NavbarLink>
 										<NavbarLink path="/components" label="PC Components"></NavbarLink>
 										<NavbarLink path="/become-a-seller" label="Become a Seller"></NavbarLink>
@@ -54,12 +55,22 @@ export default function Header() {
 									</ul>
 								</div>
 							</div>
+							<div className="col-lg-3 d-none d-lg-block">
+								<div className="navbar-button-wrapper d-flex align-items-center">
+									<div className="user-button-wrapper">
+										<SecondaryButton placeholder="Register" path="/register"></SecondaryButton>
+									</div>
+									<div className="user-button-wrapper">
+										<PrimaryButton placeholder="Login" path="/login"></PrimaryButton>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</nav>
-			<div className={`menu bg-white px-16 px-sm-48 py-20 ${menuDisplay ? "show" : ""}`}>
-				<div className="menu-wrapper">
+			<div className={`menu ${menuDisplay ? "show" : ""}`}>
+				<div className="menu-wrapper bg-white px-16 px-sm-48 py-20">
 					<div className="menu-wrapper-title mb-32 d-flex justify-content-between align-items-center">
 						<button className="cross-icon-wrapper" onClick={menuToggle}>
 							<CrossIcon></CrossIcon>
@@ -90,6 +101,7 @@ export default function Header() {
 						</div>
 					</div>
 				</div>
+				<Overlay></Overlay>
 			</div>
 		</>
 	);

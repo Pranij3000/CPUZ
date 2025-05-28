@@ -1,0 +1,21 @@
+.facebook,
+.instagram {
+	svg {
+		border-radius: 50%;
+		width: 2.4rem;
+		fill: transparent;
+		transition: all 0.3s ease-in-out;
+		path {
+			fill: var(--white);
+		}
+	}
+	&:hover {
+		svg {
+			fill: var(--primary);
+			filter: brightness(1.5);
+			path {
+				fill: var(--main-bg);
+			}
+		}
+	}
+}

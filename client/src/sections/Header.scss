@@ -22,14 +22,28 @@
 
 		.navbar-lg-screen {
 			height: 100%;
+			.nav-lg-links {
+				width: 100%;
+				gap: 2rem;
+			}
+		}
+		.navbar-button-wrapper {
+			height: 100%;
+			gap: 0.4rem;
+			.user-button-wrapper {
+				flex: 1;
+				a {
+					font-size: 1.4rem;
+				}
+			}
 		}
 	}
 }
 .menu {
 	position: fixed;
 	top: 0;
-	right: 0;
-	width: 90%;
+	left: 0;
+	width: 100%;
 	height: 100%;
 	z-index: 13;
 	opacity: 1;
@@ -41,6 +55,13 @@
 		opacity: 1;
 	}
 	.menu-wrapper {
+		position: fixed;
+		width: 90%;
+		height: 100%;
+		top: 0;
+		right: 0;
+		max-width: 40rem;
+		z-index: 13;
 		.menu-wrapper-title {
 			.menu-logo-wrapper {
 				aspect-ratio: 2/1;
