@@ -1,8 +1,8 @@
 import "./Overlay.scss";
-export default function Overlay() {
-	return (
-		<>
-			<div className="overlay"></div>
-		</>
-	);
+export default function Overlay({ onClick }) {
+  return (
+    <>
+      <div className="overlay" onClick={onClick}></div>
+    </>
+  );
 }

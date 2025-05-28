@@ -1,5 +1,0 @@
-const PATH = {
-	HOME: {
-		ROOT: "/",
-	},
-};

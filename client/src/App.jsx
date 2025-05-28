@@ -10,30 +10,24 @@ import CustomerSignUp from "./pages/CustomerSignUp.jsx";
 import BuildYourPc from "./pages/BuildYourPc.jsx";
 import Components from "./pages/Components.jsx";
 import SellerRegistration from "./pages/SellerRegistration.jsx";
-import RootLayout from "./components/layouts/RootLayout/index.jsx";
+import RootLayout from "./components/layouts/RootLayout.jsx";
 
 export default function App() {
-	return (
-		<>
-			<BrowserRouter>
-				<Routes>
-					<Route path="/" element={<Homepage />}></Route>
-					<Route path="*" element={<Error />}></Route>
-					<Route
-						path="/about"
-						element={
-							<RootLayout>
-								<About />
-							</RootLayout>
-						}></Route>
-					<Route path="/contact-us" element={<Contact />}></Route>
-					<Route path="/login" element={<CustomerLogin />}></Route>
-					<Route path="/register" element={<CustomerSignUp />}></Route>
-					<Route path="/build-your-pc" element={<BuildYourPc />}></Route>
-					<Route path="/components" element={<Components />}></Route>
-					<Route path="/become-a-seller" element={<SellerRegistration />}></Route>
-				</Routes>
-			</BrowserRouter>
-		</>
-	);
+  return (
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<RootLayout children={<Homepage />} />}></Route>
+          <Route path="*" element={<RootLayout children={<Error />} />}></Route>
+          <Route path="/about" element={<RootLayout children={<About />} />}></Route>
+          <Route path="/contact-us" element={<RootLayout children={<Contact />} />}></Route>
+          <Route path="/login" element={<RootLayout children={<CustomerLogin />} />}></Route>
+          <Route path="/register" element={<RootLayout children={<CustomerSignUp />} />}></Route>
+          <Route path="/build-your-pc" element={<RootLayout children={<BuildYourPc />} />}></Route>
+          <Route path="/components" element={<RootLayout children={<Components />} />}></Route>
+          <Route path="/become-a-seller" element={<RootLayout children={<SellerRegistration />} />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
 }
