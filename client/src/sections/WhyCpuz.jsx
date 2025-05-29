@@ -23,7 +23,7 @@ export default function WhyCpuz() {
             </div>
           </div>
           <div className="col-12 col-lg-6">
-            <div className="why-cpuz-image-grid d-flex pt-60 grid-stack">
+            <div className="why-cpuz-image-grid d-flex pt-lg-60 grid-stack">
               <ImageCard path={imageDisplay01}></ImageCard>
               <ImageCard path={imageDisplay02}></ImageCard>
               <ImageCard path={imageDisplay03}></ImageCard>
