@@ -93,6 +93,8 @@ strong {
   font-family: "Red Rose", serif;
   color: var(--white);
   font-weight: 700;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
@@ -186,11 +188,14 @@ li {
     span {
       display: block;
       font-weight: 700;
-      font-size: 7.2rem;
+      font-size: clamp(4.8rem, 4.8rem + 1.21vw, 6rem);
       color: var(--white);
       letter-spacing: 2px;
       line-height: 100%;
     }
+  }
+  p {
+    color: var(--white);
   }
   &.title-primary {
     span {
