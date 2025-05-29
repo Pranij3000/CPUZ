@@ -8,9 +8,9 @@ import Contact from "./pages/Contact.jsx";
 import CustomerLogin from "./pages/CustomerLogin.jsx";
 import CustomerSignUp from "./pages/CustomerSignUp.jsx";
 import BuildYourPc from "./pages/BuildYourPc.jsx";
-import Components from "./pages/Components.jsx";
+import ComponentsListing from "./pages/ComponentsListing.jsx";
 import SellerRegistration from "./pages/SellerRegistration.jsx";
-import RootLayout from "./components/layouts/RootLayout.jsx";
+import RootLayout from "./components/RootLayout.jsx";
 
 export default function App() {
   return (
@@ -24,7 +24,7 @@ export default function App() {
           <Route path="/login" element={<RootLayout children={<CustomerLogin />} />}></Route>
           <Route path="/register" element={<RootLayout children={<CustomerSignUp />} />}></Route>
           <Route path="/build-your-pc" element={<RootLayout children={<BuildYourPc />} />}></Route>
-          <Route path="/components" element={<RootLayout children={<Components />} />}></Route>
+          <Route path="/components-listing" element={<RootLayout children={<ComponentsListing />} />}></Route>
           <Route path="/become-a-seller" element={<RootLayout children={<SellerRegistration />} />}></Route>
         </Routes>
       </BrowserRouter>

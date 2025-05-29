@@ -23,7 +23,7 @@ export default function Header() {
   const menuItems = [
     { path: "/", label: "Home" },
     { path: "/build-your-pc", label: "Build Your PC" },
-    { path: "/components", label: "PC Components" },
+    { path: "/components-listing", label: "PC Components" },
     { path: "/become-a-seller", label: "Become a Seller" },
     { path: "/about", label: "About CPUZ" },
     { path: "/contact-us", label: "Contact US" },
@@ -49,7 +49,7 @@ export default function Header() {
                 <div className="navbar-lg-screen d-none d-lg-flex align-items-center">
                   <ul className="nav-lg-links d-flex align-items-center justify-content-center">
                     <NavbarLink path="/build-your-pc" label="Build Your PC"></NavbarLink>
-                    <NavbarLink path="/components" label="PC Components"></NavbarLink>
+                    <NavbarLink path="/components-listing" label="PC Components"></NavbarLink>
                     <NavbarLink path="/become-a-seller" label="Become a Seller"></NavbarLink>
                     <NavbarLink path="/about" label="About CPUZ"></NavbarLink>
                     <NavbarLink path="/contact-us" label="Contact US"></NavbarLink>
