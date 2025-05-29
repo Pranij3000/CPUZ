@@ -10,11 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@types/video.js": "^7.3.58",
     "bootstrap": "^5.3.6",
+    "prop-types": "^15.8.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.1",
-    "sass": "^1.89.0"
+    "sass": "^1.89.0",
+    "video.js": "^8.22.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",

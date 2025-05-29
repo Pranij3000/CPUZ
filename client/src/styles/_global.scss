@@ -184,16 +184,22 @@ li {
     font-weight: 300;
     color: var(--white);
     span {
+      display: block;
       font-weight: 700;
       font-size: 7.2rem;
-      color: var(--primary);
+      color: var(--white);
       letter-spacing: 2px;
       line-height: 100%;
     }
   }
-  &.title-white {
+  &.title-primary {
     span {
-      color: var(--white);
+      color: var(--primary);
+    }
+  }
+  &.title-secondary {
+    span {
+      color: var(--secondary);
     }
   }
 }

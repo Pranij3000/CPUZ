@@ -102,7 +102,7 @@ export default function Header() {
             </div>
           </div>
         </div>
-        <Overlay onClick={menuToggle}></Overlay>
+        <Overlay oncl></Overlay>
       </div>
     </>
   );
