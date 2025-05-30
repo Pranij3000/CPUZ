@@ -1,4 +1,20 @@
 .cd-card {
+	position: relative;
+	overflow: hidden;
+	z-index: 0;
+	.component-image {
+		position: absolute;
+		bottom: 1.2rem;
+		right: 5%;
+		width: fit-content;
+		height: 90%;
+		transition: all 0.3s ease-in-out;
+		z-index: -1;
+		img {
+			height: 100%;
+			object-fit: cover;
+		}
+	}
 	&:hover {
 		.colored-link {
 			color: var(--primary) !important;
@@ -6,6 +22,9 @@
 				opacity: 1;
 				transform: translate(0, -50%);
 			}
+		}
+		.component-image {
+			transform: scale(1.1);
 		}
 	}
 }
