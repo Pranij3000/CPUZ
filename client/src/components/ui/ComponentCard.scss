@@ -2,8 +2,9 @@
 	position: relative;
 	overflow: hidden;
 	z-index: 0;
-	border: 1px solid transparent;
-
+	h4 {
+		transition: all 0.3s ease-in-out;
+	}
 	.component-image {
 		position: absolute;
 		bottom: 1.2rem;
@@ -18,7 +19,9 @@
 		}
 	}
 	&:hover {
-		border: 1px solid var(--primary);
+		h4 {
+			color: var(--white) !important;
+		}
 		.colored-link {
 			color: var(--primary) !important;
 			&::after {

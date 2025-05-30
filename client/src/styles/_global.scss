@@ -8,6 +8,7 @@
 	--black-100: #0000001a;
 	--main-bg: #101014;
 	--light-bg: #404044;
+	--main-gradient: linear-gradient(180deg, #28282c, var(--main-bg));
 }
 
 $theme-color: (
@@ -19,6 +20,7 @@ $theme-color: (
 	"black": var(--black),
 	"main-bg": var(--main-bg),
 	"light-bg": var(--light-bg),
+	"main-gradient": var(--main-gradient),
 );
 
 $border-colors: (
