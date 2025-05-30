@@ -1,0 +1,11 @@
+.cd-card {
+	&:hover {
+		.colored-link {
+			color: var(--primary) !important;
+			&::after {
+				opacity: 1;
+				transform: translate(0, -50%);
+			}
+		}
+	}
+}

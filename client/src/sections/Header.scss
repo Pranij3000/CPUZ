@@ -73,30 +73,6 @@
 					&:not(:last-child) {
 						margin-bottom: 3.2rem;
 					}
-					.menu-option-link {
-						position: relative;
-						transition: all 0.3s ease-in-out;
-
-						&::after {
-							position: absolute;
-							right: -20px;
-							top: 50%;
-							transform: translate(-8px, -50%);
-							content: "";
-							background: url(../../assets/images/icons/arrow-sign-primary.svg) no-repeat center center / cover;
-							width: 1.6rem;
-							height: 1.6rem;
-							opacity: 0;
-							transition: all 0.3s ease-in-out;
-						}
-						&:hover {
-							color: var(--primary) !important;
-							&::after {
-								opacity: 1;
-								transform: translate(0, -50%);
-							}
-						}
-					}
 				}
 			}
 		}
