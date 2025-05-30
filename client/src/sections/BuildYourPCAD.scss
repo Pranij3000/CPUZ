@@ -1,0 +1,13 @@
+.build-your-pc-ad {
+  .row {
+    --bs-gutter-x: 3.2rem;
+    --bs-gutter-y: 3.2rem;
+  }
+  .bypc-image-wrapper {
+    height: 100%;
+    img {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
