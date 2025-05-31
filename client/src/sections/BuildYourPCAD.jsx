@@ -6,7 +6,7 @@ import "./BuildYourPCAD.scss";
 export default function BuildYourPCAD() {
   return (
     <section className="build-your-pc-ad py-64 py-lg-96 bg-white">
-      <div className="container">
+      <div className="container" data-aos="fade-up">
         <div className="row">
           <div className="col-lg-6 order-lg-2">
             <SectionTitleDark title="Start Building" spanText="With Us" extraClass="text-start" />

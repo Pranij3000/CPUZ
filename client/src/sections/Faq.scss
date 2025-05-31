@@ -1,6 +1,8 @@
 .faq {
   .faq-wrapper {
     > .row {
+      --bs-gutter-x: 2.4rem;
+      --bs-gutter-y: 3.2rem;
     }
     .faq-description-wrapper {
       height: 100%;
@@ -10,6 +12,9 @@
           --bs-gutter-y: 1.2rem;
         }
       }
+    }
+    .faq-body-wrapper {
+      gap: 1.2rem;
     }
   }
 }

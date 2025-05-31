@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AOS from "aos";
+import { useEffect } from "react";
 
 // PAGES
 import Homepage from "./pages/HomePage.jsx";
@@ -13,6 +15,11 @@ import SellerRegistration from "./pages/SellerRegistration.jsx";
 import RootLayout from "./components/RootLayout.jsx";
 
 export default function App() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
+  }, []);
   return (
     <>
       <BrowserRouter>

@@ -1,0 +1,30 @@
+.faq-box {
+  cursor: pointer;
+  .faq-box-title {
+    position: relative;
+    .arrow-icon {
+      position: absolute;
+      right: 1.2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: all 0.3s ease-in-out;
+      path {
+        fill: var(--text);
+      }
+    }
+  }
+  .faq-box-description-box {
+    grid-template-rows: 0fr;
+    transition: all 0.3s ease-in-out;
+  }
+  &.show {
+    .faq-box-title {
+      .arrow-icon {
+        transform: translateY(-50%) rotate(180deg);
+      }
+    }
+    .faq-box-description-box {
+      grid-template-rows: 1fr;
+    }
+  }
+}

@@ -11,7 +11,7 @@ import imageDisplay04 from "../../assets/images/imgcard-04.jpg";
 export default function WhyCpuz() {
   return (
     <section className="why-cpuz py-64 py-lg-96 bg-white">
-      <div className="container">
+      <div className="container" data-aos="fade-up">
         <div className="row justify-content-between">
           <div className="col-12 col-lg-6">
             <div className="why-cpuz-wrapper">

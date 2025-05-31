@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@types/video.js": "^7.3.58",
+    "aos": "^2.3.4",
     "bootstrap": "^5.3.6",
     "prop-types": "^15.8.1",
     "react": "^19.1.0",

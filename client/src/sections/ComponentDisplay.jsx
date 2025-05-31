@@ -26,7 +26,7 @@ export default function ComponentDisplay() {
 
   return (
     <section className="component-display py-64 py-lg-96 bg-main-gradient">
-      <div className="container">
+      <div className="container" data-aos="fade-up">
         <SectionTitle extraClass="text-center mb-40" title="Uncover Key Details" spanText="About Components" />
         <div className="component-display-wrapper">
           <div className="row">

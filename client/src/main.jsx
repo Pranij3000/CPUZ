@@ -4,6 +4,7 @@ import App from "./App.jsx";
 
 // PLUGINS
 import "bootstrap/dist/css/bootstrap.min.css";
+import "aos/dist/aos.css";
 
 // CUSTOM SCSS
 import "./styles/styles.scss";
