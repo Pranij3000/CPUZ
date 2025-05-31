@@ -3,6 +3,7 @@ import WhyCpuz from "../sections/WhyCpuz";
 import ComponentDisplay from "../sections/ComponentDisplay.jsx";
 import BrandSlider from "../sections/BrandSlider.jsx";
 import BuildYourPcAd from "../sections/BuildYourPCAD.jsx";
+import Faq from "../sections/Faq.jsx";
 
 export default function Homepage() {
   return (
@@ -12,6 +13,7 @@ export default function Homepage() {
       <ComponentDisplay />
       <BrandSlider />
       <BuildYourPcAd />
+      <Faq />
     </>
   );
 }
