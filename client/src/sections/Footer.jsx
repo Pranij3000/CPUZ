@@ -1,6 +1,7 @@
 import "./footer.scss";
 import { Link } from "react-router-dom";
 
+import UnderlinedHeader from "../components/ui/UnderlinedHeader";
 export default function Footer() {
 	const footerLinks = [
 		{
@@ -50,7 +51,7 @@ export default function Footer() {
 							{footerLinks.map((item, index) => (
 								<div className="col-6 col-md-3 col-xl-3" key={index}>
 									<div className="footer-links-wrapper">
-										<h5 className="footer-header mb-16 mx-auto">{item.heading}</h5>
+										<UnderlinedHeader text={item.heading}></UnderlinedHeader>
 										<ul>
 											{item.links.map((listItem, index) => (
 												<li key={index} className="text-center">
@@ -70,7 +71,7 @@ export default function Footer() {
 							<div className="col-md-6 col-xl-5">
 								<div className="locations-wrapper bg-primary-100 rounded-8 p-16">
 									<div className="footer-top mb-32">
-										<h5 className="footer-header mx-auto">Our Location</h5>
+										<UnderlinedHeader text="Our Location"></UnderlinedHeader>
 									</div>
 									<div className="footer-locations-wrapper">
 										<div className="row">
@@ -119,7 +120,7 @@ export default function Footer() {
 							<div className="col-md-6 col-xl-5">
 								<div className="contact-us-wrapper bg-primary-100 rounded-8 p-16">
 									<div className="footer-top mb-32">
-										<h5 className="footer-header mx-auto">Contact US</h5>
+										<UnderlinedHeader text="Contact US"></UnderlinedHeader>
 									</div>
 									<div className="footer-contact-us">
 										<div className="row">
