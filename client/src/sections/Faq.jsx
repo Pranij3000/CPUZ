@@ -5,7 +5,7 @@ import FaqBox from "../components/ui/FaqBox.jsx";
 import "./faq.scss";
 export default function Faq() {
   return (
-    <section className="faq bg-main-gradient pt-64 pt-lg-96 pb-96 pb-md-120 pb-xl-160 overflow-hidden">
+    <section className="faq bg-light-bg py-64 py-lg-96 overflow-hidden">
       <div className="container" data-aos="fade-up">
         <div className="faq-wrapper">
           <div className="row">

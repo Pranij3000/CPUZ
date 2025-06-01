@@ -1,0 +1,36 @@
+.footer {
+  .footer-links {
+    .row {
+      --bs-gutter-y: 3.2rem;
+    }
+    .footer-links-wrapper {
+      ul {
+        li {
+          margin-bottom: 0.8rem;
+          font-size: 1.6rem;
+          a {
+            transition: all 0.3s ease-in-out;
+            &:hover {
+              color: var(--white) !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.footer-header {
+  position: relative;
+  width: fit-content;
+  &::before {
+    position: absolute;
+    content: "";
+    top: 105%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 0.4rem;
+    background: var(--primary);
+  }
+}
