@@ -1,5 +1,8 @@
 .footer {
+	position: relative;
+	z-index: 1;
 	.footer-links {
+		backdrop-filter: blur(24px);
 		> .row {
 			--bs-gutter-y: 3.2rem;
 		}
@@ -23,16 +26,36 @@
 			--bs-gutter-y: 4rem;
 			--bs-gutter-x: 3.2rem;
 		}
-		.footer-locations-wrapper {
-			> .row {
-				--bs-gutter-y: 1.6rem;
+		.locations-wrapper {
+			height: 100%;
+			.footer-locations-wrapper {
+				> .row {
+					--bs-gutter-y: 1.6rem;
+				}
 			}
 		}
-		.footer-contact-us {
-			.footer-contacts {
-				gap: 0.8rem;
+		.contact-us-wrapper {
+			height: 100%;
+			.footer-contact-us {
+				.footer-contacts {
+					gap: 0.8rem;
+				}
+				> .row {
+					--bs-gutter-y: 1.6rem;
+				}
 			}
 		}
+	}
+	&:after {
+		position: absolute;
+		content: "";
+		top: 50%;
+		left: 50%;
+		width: 100%;
+		height: 90%;
+		transform: translate(-50%, -50%);
+		background: red;
+		z-index: -1;
 	}
 }
 
