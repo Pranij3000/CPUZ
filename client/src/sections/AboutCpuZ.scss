@@ -1,0 +1,17 @@
+.about-cpuz {
+  .about-cpuz-wrapper {
+    .mission-wrapper,
+    .about-us-wrapper,
+    .offer-wrapper {
+      max-width: 68rem;
+      p {
+        font-size: 1.6rem;
+      }
+      ul {
+        li {
+          font-size: 1.6rem;
+        }
+      }
+    }
+  }
+}

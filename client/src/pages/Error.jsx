@@ -1,18 +1,9 @@
-import "./Error.scss";
+import BannerButton from "../sections/BannerButton";
+import Background from "../../assets/images/placeholder-04.png";
 export default function ErrorPage() {
-	return (
-		<>
-			<section className="error-page py-64">
-				<div className="container">
-					<div className="error-page-wrapper d-flex align-items-end">
-						<div className="title">
-							<h1>
-								<span className="text-white">Page not Found</span>
-							</h1>
-						</div>
-					</div>
-				</div>
-			</section>
-		</>
-	);
+  return (
+    <>
+      <BannerButton background={`url(${Background})`} strong="PAGE NOT FOUND" title="Uh-oh.." description="It looks like the page you're searching for isn't here. Please check the URL or return to the homepage." BtnPlaceholder="Return to Homepage" />
+    </>
+  );
 }

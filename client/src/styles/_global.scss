@@ -6,9 +6,13 @@
   --white: #fff;
   --black: #000;
   --black-100: #0000001a;
+  --black-500: rgba(0, 0, 0, 0.5);
+
   --main-bg: #101014;
   --light-bg: #28282c;
   --main-gradient: linear-gradient(180deg, #28282c, var(--main-bg));
+  --black-gradient: linear-gradient(180deg, transparent, var(--black-500), var(--black));
+  --overlay-gradient: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%);
 }
 
 $theme-color: (
@@ -136,19 +140,31 @@ li {
   ul {
     padding-left: 3.2rem;
     list-style: none;
+    width: max-content;
     li {
       position: relative;
+      color: var(--black);
       &::before {
         content: "";
         position: absolute;
         width: 1.6rem;
         height: 1.6rem;
-        top: 2px;
+        top: 50%;
+        transform: translateY(-50%);
         left: -2.4rem;
         background: url(../../assets/images/icons/list-style.svg);
       }
       &:not(:last-child) {
         margin-bottom: 0.4rem;
+      }
+    }
+  }
+  &.green-list {
+    ul {
+      li {
+        &::before {
+          background: url(../../assets/images/icons/list-style-green.svg);
+        }
       }
     }
   }
