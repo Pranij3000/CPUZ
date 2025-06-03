@@ -24,7 +24,7 @@ export default function GetInTouch() {
               </div>
             </div>
             <div className="col-lg-6">
-              <iframe title="Google Map" width="100%" height="100%" style={{ border: 0 }} src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.8398356435213!2d-122.42067968468192!3d37.77492927975974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c77bfa58f%3A0x6e8ddf541cced7c!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1622191043681!5m2!1sen!2sus" allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+              <iframe title="Google Map" width="100%" height="100%" frameBorder="0" style={{ border: 0 }} src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d220.77730606577816!2d85.30551362782717!3d27.70379381769111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1857cb850001%3A0xc61d47603472aa48!2sMaru%20Dabali!5e0!3m2!1sen!2snp!4v1748928930089!5m2!1sen!2snp" allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
         </div>
