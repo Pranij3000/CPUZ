@@ -1,0 +1,29 @@
+.login-form-wrapper {
+  .login-form {
+    max-width: 44rem;
+    .section-title {
+      h3 {
+        font-weight: 500;
+      }
+    }
+  }
+  .form-image-wrapper {
+    height: 24rem;
+    overflow: hidden;
+    img {
+      object-fit: cover;
+      width: 100%;
+      max-height: 100%;
+    }
+  }
+}
+@media (min-width: 768px) {
+  .login-form-wrapper {
+    .form-image-wrapper {
+      height: 54rem;
+      img {
+        height: 100%;
+      }
+    }
+  }
+}

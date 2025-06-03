@@ -1,7 +1,13 @@
 export default function ComponentsListing() {
   return (
     <>
-      <h1>Components</h1>
+      <section className="component-listing py-64 py-md-96">
+        <div className="container">
+          <div className="component-listing-wrapper">
+            <div className="row"></div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

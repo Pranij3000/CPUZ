@@ -5,7 +5,6 @@ export default function FaqBox({ title, description }) {
   const [display, setDisplay] = useState(false);
 
   function changeDisplay() {
-    console.log(display);
     setDisplay(!display);
   }
   return (
