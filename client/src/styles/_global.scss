@@ -7,7 +7,6 @@
   --black: #000;
   --black-100: #0000001a;
   --black-500: rgba(0, 0, 0, 0.5);
-
   --main-bg: #101014;
   --light-bg: #28282c;
   --main-gradient: linear-gradient(180deg, #28282c, var(--main-bg));
@@ -25,6 +24,7 @@ $theme-color: (
   "main-bg": var(--main-bg),
   "light-bg": var(--light-bg),
   "main-gradient": var(--main-gradient),
+  "overlay-gradient": var(--overlay-gradient),
 );
 
 $border-colors: (

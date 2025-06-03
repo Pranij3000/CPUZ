@@ -1,0 +1,17 @@
+.get-in-touch {
+  .get-in-touch-wrapper {
+    > .row {
+      --bs-gutter-y: 2.4rem;
+      --bs-gutter-x: 4rem;
+    }
+    .git-info-wrapper {
+      > .row {
+        --bs-gutter-y: 1.2rem;
+        --bs-gutter-x: 1.2rem;
+      }
+    }
+    .map-wrapper {
+      height: 100%;
+    }
+  }
+}

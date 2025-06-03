@@ -1,0 +1,22 @@
+.contact-card {
+  height: 100%;
+  gap: 1.2rem;
+  transition: all 0.3s ease-in-out;
+  .detail-container {
+    align-self: start;
+    h6,
+    p {
+      word-break: break-word;
+      font-size: 1.6rem;
+    }
+  }
+  &:hover {
+    background: var(--primary-100) !important;
+    .detail-container {
+      h6,
+      p {
+        color: var(--black) !important;
+      }
+    }
+  }
+}
