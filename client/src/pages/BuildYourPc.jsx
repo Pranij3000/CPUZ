@@ -1,10 +1,12 @@
 import BannerSimple from "../sections/BannerSimple";
-import Background from "../../assets/images/placeholder-10.jpg";
+import PCBuilder from "../sections/PCBuilder";
 
+import computer from "../../assets/images/icons/computer.svg";
 export default function BuildYourPc() {
-	return (
-		<>
-			<BannerSimple placeholder="BUILD YOUR PC" background={`url(${Background})`} />
-		</>
-	);
+  return (
+    <>
+      <BannerSimple placeholder="BUILD YOUR PC" svg={computer} />
+      <PCBuilder />
+    </>
+  );
 }
