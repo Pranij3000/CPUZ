@@ -1,13 +1,14 @@
 import "./BannerSimple.scss";
-export default function BannerSimple({ placeholder, svg }) {
-  return (
-    <section className="banner-simple py-20 bg-main-gradient border-bottom-white-200">
-      <div className="container">
-        <div className="section-title text-start d-flex align-items-center">
-          <div className="icon-wrapper">{svg && <img src={svg} alt="Icon" className="img-fluid" />}</div>
-          <h3 className="text-white">{placeholder}</h3>
-        </div>
-      </div>
-    </section>
-  );
+export default function BannerSimple({ placeholder, background }) {
+	return (
+		<section className="banner-simple bg-primary-100" background={{ background }}>
+			<div className="container">
+				<div className="section-title text-start border-bottom-white-200 pt-20 pb-20">
+					<h3>
+						<span>{placeholder}</span>
+					</h3>
+				</div>
+			</div>
+		</section>
+	);
 }
