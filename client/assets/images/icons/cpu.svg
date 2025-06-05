@@ -1,0 +1,21 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- CPU main body -->
+  <rect x="25" y="25" width="50" height="50" rx="6" ry="6" fill="#2ecc71" stroke="black" stroke-width="3"/>
+
+  <!-- Inner chip -->
+  <rect x="35" y="35" width="30" height="30" fill="black"/>
+
+  <!-- Pins -->
+  <!-- Top -->
+  <rect x="44" y="10" width="4" height="10" fill="black"/>
+  <rect x="52" y="10" width="4" height="10" fill="black"/>
+  <!-- Bottom -->
+  <rect x="44" y="80" width="4" height="10" fill="black"/>
+  <rect x="52" y="80" width="4" height="10" fill="black"/>
+  <!-- Left -->
+  <rect x="10" y="44" width="10" height="4" fill="black"/>
+  <rect x="10" y="52" width="10" height="4" fill="black"/>
+  <!-- Right -->
+  <rect x="80" y="44" width="10" height="4" fill="black"/>
+  <rect x="80" y="52" width="10" height="4" fill="black"/>
+</svg>

@@ -1,18 +1,19 @@
 .pc-builder-card {
-	.pc-builder-card-top {
-		h4 {
-			font-weight: 300;
-			font-size: 2rem;
-		}
-		button {
-			font-size: 1.6rem;
-			transition: all 0.3s ease-in-out;
-			&:hover {
-				color: var(--primary) !important;
-			}
-		}
-	}
-	&:not(:last-child) {
-		margin-bottom: 1.2rem;
-	}
+  .pc-builder-card-top {
+    .pc-builder-card-title-wrapper {
+      gap: 0.8rem;
+      .pc-component-icon {
+        width: 4rem;
+      }
+      h4 {
+        font-weight: 700;
+      }
+    }
+    .primary-button {
+      font-size: 1.6rem;
+    }
+  }
+  &:not(:last-child) {
+    border-bottom: 1px solid var(--black-500);
+  }
 }
