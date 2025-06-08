@@ -1,3 +1,4 @@
+import { useState } from "react";
 import SectionTitle from "../components/ui/SectionTitle";
 import Background from "../../assets/images/placeholder-09.png";
 import EmailInput from "../components/form/EmailInput";

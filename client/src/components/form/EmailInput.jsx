@@ -1,8 +1,8 @@
-export default function EmailInput({ label }) {
+export default function EmailInput({ label, name, value, onChange }) {
   return (
     <div className="input-field">
-      <label>{label}</label>
-      <input type="email" />
+      <label htmlFor={name}>{label}</label>
+      <input type="email" id={name} name={name} value={value} onChange={onChange} />
     </div>
   );
 }
