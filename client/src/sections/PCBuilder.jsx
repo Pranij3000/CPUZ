@@ -12,26 +12,26 @@ import powerSupply from "../../assets/images/icons/power-supply.svg";
 import monitor from "../../assets/images/icons/monitor.svg";
 
 export default function PCBuilder() {
-  const components = [
-    { component: "CPU", svg: cpu },
-    { component: "Motherboard", svg: motherboard },
-    { component: "Memory", svg: memory },
-    { component: "Storage", svg: storage },
-    { component: "GPU", svg: gpu },
-    { component: "Cooling", svg: cooling },
-    { component: "Power Supply", svg: powerSupply },
-    { component: "Case", svg: pccase },
-    { component: "Monitor", svg: monitor },
-  ];
-  return (
-    <section className="pc-builder pt-40 pb-64 pt-md-64 pb-md-96 bg-white">
-      <div className="container">
-        <div className="pc-builder-wrapper">
-          {components.map((item, index) => (
-            <PCBuilderCard target-data="" component={item.component} svg={item.svg} key={index} />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+	const components = [
+		{ component: "CPU", svg: cpu },
+		{ component: "Motherboard", svg: motherboard },
+		{ component: "Memory", svg: memory },
+		{ component: "Storage", svg: storage },
+		{ component: "GPU", svg: gpu },
+		{ component: "Cooling", svg: cooling },
+		{ component: "Power Supply", svg: powerSupply },
+		{ component: "Case", svg: pccase },
+		{ component: "Monitor", svg: monitor },
+	];
+	return (
+		<section className="pc-builder pt-40 pb-64 pt-md-64 pb-md-96 bg-white">
+			<div className="container">
+				<div className="pc-builder-wrapper">
+					{components.map((item, index) => (
+						<PCBuilderCard target-data="" component={item.component} svg={item.svg} key={index} />
+					))}
+				</div>
+			</div>
+		</section>
+	);
 }
