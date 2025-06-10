@@ -1,59 +1,63 @@
 import Customer from "../models/customer.js";
+import jwt from "jsonwebtoken";
 
 const signToken = (id) => {
-	//jwt token
-	return jwt.sign({ id }, process.env.JWT_SECRET, {
-		expiresIn: "7d",
-	});
+  return jwt.sign({ id }, process.env.JWT_SECRET, {
+    expiresIn: "7d",
+  });
 };
 
 export const registerCustomer = async (req, res) => {
-	try {
-		const { firstName, lastName, email, password } = req.body;
+  try {
+    const { firstName, lastName, email, password } = req.body;
 
-		// All fields required validation
-		// validation email and password
-		// Duplicate Check
-		const existingCustomer = await Customer.find({ email });
+    // Basic input validation
+    if (!firstName || !lastName || !email || !password) {
+      return res.status(400).json({ message: "All fields are required" });
+    }
+    if (password.length < 6) {
+      return res.status(400).json({ message: "Password must be at least 6 characters" });
+    }
+    if (!/^\S+@\S+\.\S+$/.test(email)) {
+      return res.status(400).json({ message: "Invalid email format" });
+    }
 
-		if (existingCustomer) {
-			return res.status(404).json({
-				message: "Email Already Registered",
-			});
-		}
+    // Check for duplicate email
+    const existingCustomer = await Customer.findOne({ email });
+    if (existingCustomer) {
+      return res.status(409).json({ message: "Email already registered" });
+    }
 
-		const newCustomer = await Customer.create({
-			firstName,
-			lastName,
-			email,
-			password,
-		});
+    const newCustomer = await Customer.create({
+      firstName,
+      lastName,
+      email,
+      password,
+    });
 
-		const token = signToken(newCustomer._id);
+    const token = signToken(newCustomer._id);
 
-		// ======= create a jwt token ===========
-		res.cookie("jwt", token, {
-			maxAge: 7 * 24 * 60 * 60 * 1000, //7 days in milliseconds
-			httpOnly: true, //prevents any XSS attacks
-			sameSte: "strict", //prevents any CSRF attacks
-			secure: process.env.NODE_ENV === "production",
-		});
+    res.cookie("jwt", token, {
+      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+      httpOnly: true,
+      sameSite: "strict",
+      secure: process.env.NODE_ENV === "production",
+    });
 
-		res.status(200).json({
-			message: "User Registered Succesfully",
-			customer: {
-				_id: newCustomer._id,
-				firstName: newCustomer.firstName,
-				lastName: newCustomer.lastName,
-				email: newCustomer.email,
-			},
-		});
-	} catch (error) {
-		console.log("Error in Register Customer: ", error);
-		res.status(500).json({
-			message: "Internal Server Error",
-		});
-	}
+    res.status(201).json({
+      message: "User registered successfully",
+      customer: {
+        _id: newCustomer._id,
+        firstName: newCustomer.firstName,
+        lastName: newCustomer.lastName,
+        email: newCustomer.email,
+      },
+    });
+  } catch (error) {
+    console.error("Error in registerCustomer:", error);
+    if (error.code === 11000) {
+      return res.status(409).json({ message: "Email already registered" });
+    }
+    res.status(500).json({ message: "Internal server error" });
+  }
 };
-
-// login ko lagi che use matchPassword function cerated in customer schema

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 
 import formImage from "../../assets/images/placeholder-07.png";
 import SectionTitleDark from "../components/ui/SectionTitleDark";
@@ -9,119 +10,149 @@ import FormButton from "../components/button/FormButton";
 
 import "./CustomerSignUp.scss";
 export default function CustomerSignUp() {
-	const [formData, setFormData] = useState({
-		firstName: "",
-		lastName: "",
-		email: "",
-		password: "",
-	});
-	const [submitStatus, setSubmitStatus] = useState(null);
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  });
 
-	const validateForm = (data) => {
-		if (!data.firstName?.trim()) return "First Name is required";
-		if (!data.lastName?.trim()) return "Last Name is required";
-		if (!data.email?.trim()) return "Email is required";
-		if (!/\S+@\S+\.\S+/.test(data.email)) return "Invalid email format";
-		if (!data.password?.trim()) return "Password is required";
-		if (data.password.length < 6) return "Password must be at least 6 characters";
-		return null;
-	};
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [loading, setLoading] = useState(false);
 
-	const handleInput = (e) => {
-		const { name, value } = e.target;
-		setFormData((prevData) => ({
-			...prevData,
-			[name]: value,
-		}));
-	};
+  const handleInput = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+    if (error) setError("");
+    if (success) setSuccess("");
+  };
 
-	const handleSubmit = async (e) => {
-		e.preventDefault();
-		const form = e.target;
-		const formDataObj = {
-			firstName: form.firstName.value,
-			lastName: form.lastName.value,
-			email: form.email.value,
-			password: form.password.value,
-		};
+  const validateForm = () => {
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.password) {
+      setError("All fields are required");
+      return false;
+    }
+    if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      setError("Invalid email format");
+      return false;
+    }
+    if (formData.password.length < 6) {
+      setError("Password must be at least 6 characters");
+      return false;
+    }
+    return true;
+  };
 
-		console.log(formDataObj);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    setSuccess("");
+    setLoading(true);
 
-		const validationError = validateForm(formDataObj);
-		if (validationError) {
-			setSubmitStatus(`Error: ${validationError}`);
-			return;
-		}
+    if (!validateForm()) {
+      setLoading(false);
+      return;
+    }
 
-		try {
-			const response = await fetch("/api/customer/register", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify(formDataObj),
-			});
+    try {
+      const response = await axios.post("http://localhost:5000/api/customer/register", formData, {
+        withCredentials: true,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
-			const data = await response.json();
-			if (response.ok) {
-				setSubmitStatus("Customer registered successfully");
-				setFormData({
-					firstName: "",
-					lastName: "",
-					email: "",
-					password: "",
-				});
-				form.reset();
-			} else {
-				setSubmitStatus(`Error: ${data.message || "Registration failed"}`);
-			}
-		} catch (error) {
-			setSubmitStatus("Error: Network issue, please try again later");
-		}
-	};
+      setSuccess(`Registration successful! Go to Login.`);
+      setFormData({ firstName: "", lastName: "", email: "", password: "" });
+    } catch (error) {
+      console.error("Registration error:", error);
 
-	return (
-		<>
-			<section className="form-section bg-light-bg py-64 py-md-96">
-				<div className="container">
-					<form onSubmit={(e) => handleSubmit(e)}>
-						<div className="register-form-wrapper form-wrapper bg-white rounded-16 overflow-hidden">
-							<div className="row">
-								<div className="col-md-6">
-									<div className="form-image-wrapper d-flex d-md-block align-items-end">
-										<img src={formImage} alt="" className="img-fluid" />
-									</div>
-								</div>
-								<div className="col-md-6">
-									<div className="register-form px-24 pr-md-24 py-32 mx-auto">
-										<SectionTitleDark title="Register Now" spanText="" extraClass="text-start mb-32" />
-										<div className="form-filled">
-											<div className="row">
-												<div className="col-md-6">
-													<TextInput label="First Name" name="firstName" value={formData.firstName} onChange={(e) => handleInput(e)} />
-												</div>
-												<div className="col-md-6">
-													<TextInput label="Last Name" name="lastName" value={formData.lastName} onChange={(e) => handleInput(e)} />
-												</div>
-												<div className="col-12">
-													<EmailInput label="Email Address" name="email" value={formData.email} onChange={(e) => handleInput(e)} />
-												</div>
-												<div className="col-12">
-													<PasswordInput label="Password" name="password" value={formData.password} onChange={(e) => handleInput(e)} />
-												</div>
-												<div className="col-12">
-													<FormButton placeholder="Register" type="submit" />
-												</div>
-											</div>
-											{submitStatus && <div className={`submit-status ${submitStatus.startsWith("Error") ? "text-danger" : "text-success"}`}>{submitStatus}</div>}
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</form>
-				</div>
-			</section>
-		</>
-	);
+      if (error.response) {
+        // Server responded with error status
+        const statusCode = error.response.status;
+        const message = error.response.data?.message || "Registration failed";
+
+        switch (statusCode) {
+          case 400:
+            setError(message);
+            break;
+          case 409:
+            setError("This email is already registered. Please use a different email or try logging in.");
+            break;
+          case 500:
+            setError("Server error. Please try again later.");
+            break;
+          default:
+            setError(message);
+        }
+      } else if (error.request) {
+        // Network error
+        setError("Unable to connect to server. Please check your internet connection and try again.");
+      } else {
+        // Other error
+        setError("An unexpected error occurred. Please try again.");
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <>
+      <section className="form-section bg-light-bg py-64 py-md-96">
+        <div className="container">
+          <form onSubmit={handleSubmit}>
+            <div className="register-form-wrapper form-wrapper bg-white rounded-16 overflow-hidden">
+              <div className="row">
+                <div className="col-md-6">
+                  <div className="form-image-wrapper d-flex d-md-block align-items-end">
+                    <img src={formImage} alt="" className="img-fluid" />
+                  </div>
+                </div>
+                <div className="col-md-6">
+                  <div className="register-form px-24 pr-md-24 py-32 mx-auto">
+                    <SectionTitleDark title="Register Now" spanText="" extraClass="text-start mb-32" />
+                    {error && (
+                      <div className="alert alert-danger mb-3" role="alert">
+                        {error}
+                      </div>
+                    )}
+
+                    {success && (
+                      <div className="alert alert-success mb-3" role="alert">
+                        {success}
+                      </div>
+                    )}
+                    <div className="form-filled">
+                      <div className="row">
+                        <div className="col-md-6">
+                          <TextInput label="First Name" name="firstName" value={formData.firstName} onChange={handleInput} />
+                        </div>
+                        <div className="col-md-6">
+                          <TextInput label="Last Name" name="lastName" value={formData.lastName} onChange={handleInput} />
+                        </div>
+                        <div className="col-12">
+                          <EmailInput label="Email Address" name="email" value={formData.email} onChange={handleInput} />
+                        </div>
+                        <div className="col-12">
+                          <PasswordInput label="Password" name="password" value={formData.password} onChange={handleInput} />
+                        </div>
+                        <div className="col-12">
+                          <FormButton placeholder={loading ? "Registering..." : "Register"} type="submit" disabled={loading} />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+    </>
+  );
 }
