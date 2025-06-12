@@ -1,19 +1,30 @@
 .pc-builder-card {
-  .pc-builder-card-top {
-    .pc-builder-card-title-wrapper {
-      gap: 0.8rem;
-      .pc-component-icon {
-        width: 4rem;
-      }
-      h4 {
-        font-weight: 700;
-      }
-    }
-    .primary-button {
-      font-size: 1.6rem;
-    }
-  }
-  &:not(:last-child) {
-    border-bottom: 1px solid var(--black-500);
-  }
+	.pc-builder-card-top {
+		.pc-builder-card-title-wrapper {
+			gap: 0.8rem;
+			.pc-component-icon {
+				width: 4rem;
+			}
+			h4 {
+				font-weight: 700;
+			}
+		}
+		.primary-button {
+			font-size: 1.6rem;
+		}
+	}
+	&:not(:last-child) {
+		border-bottom: 1px solid var(--black-500);
+	}
+}
+.popup {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100vw;
+	overflow-y: auto;
+	transition: all 0.3s ease-in-out;
+	z-index: 14;
+	backdrop-filter: blur(6px);
 }

@@ -114,6 +114,44 @@ export default function Footer() {
 													</div>
 												</div>
 											</div>
+											<div className="col-sm-6 col-md-12 col-lg-6">
+												<div className="footer-locations d-flex align-items-center">
+													<svg width="40" height="40" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg" fill="none">
+														<rect x="40" y="110" width="70" height="10" fill="#bebec2" />
+														<rect x="50" y="90" width="50" height="20" fill="#2ecc71" />
+														<polygon points="40,90 75,80 110,90 105,95 45,95" fill="#bebec2" />
+														<rect x="55" y="65" width="40" height="25" fill="#2ecc71" />
+														<polygon points="50,65 75,55 100,65 95,70 55,70" fill="#bebec2" />
+														<rect x="65" y="40" width="20" height="20" fill="#2ecc71" />
+														<polygon points="60,40 75,30 90,40 87,43 63,43" fill="#bebec2" />
+														<line x1="75" y1="20" x2="75" y2="30" stroke="#bebec2" strokeWidth="2" />
+														<circle cx="75" cy="18" r="2" fill="#bebec2" />
+													</svg>
+													<div className="footer-location-detail">
+														<p>Branch Office</p>
+														<h6>Gabahal, Patan</h6>
+													</div>
+												</div>
+											</div>
+											<div className="col-sm-6 col-md-12 col-lg-6">
+												<div className="footer-locations d-flex align-items-center">
+													<svg width="40" height="40" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg" fill="none">
+														<rect x="40" y="110" width="70" height="10" fill="#bebec2" />
+														<rect x="50" y="90" width="50" height="20" fill="#2ecc71" />
+														<polygon points="40,90 75,80 110,90 105,95 45,95" fill="#bebec2" />
+														<rect x="55" y="65" width="40" height="25" fill="#2ecc71" />
+														<polygon points="50,65 75,55 100,65 95,70 55,70" fill="#bebec2" />
+														<rect x="65" y="40" width="20" height="20" fill="#2ecc71" />
+														<polygon points="60,40 75,30 90,40 87,43 63,43" fill="#bebec2" />
+														<line x1="75" y1="20" x2="75" y2="30" stroke="#bebec2" strokeWidth="2" />
+														<circle cx="75" cy="18" r="2" fill="#bebec2" />
+													</svg>
+													<div className="footer-location-detail">
+														<p>Branch Office</p>
+														<h6>Min-Bhawan, Baneshwor</h6>
+													</div>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>

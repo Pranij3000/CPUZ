@@ -23,6 +23,7 @@ export default function PCBuilder() {
 		{ component: "Case", svg: pccase },
 		{ component: "Monitor", svg: monitor },
 	];
+
 	return (
 		<section className="pc-builder pt-40 pb-64 pt-md-64 pb-md-96 bg-white">
 			<div className="container">
