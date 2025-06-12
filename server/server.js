@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import connectDB from "./config/db.js";
 import sellerRoutes from "./routes/sellerRoutes.js";
 import customerRoutes from "./routes/customerRoutes.js";
+import partsRoutes from "./routes/partRoutes.js";
 
 config();
 
@@ -26,6 +27,7 @@ app.use(cookieParser());
 
 app.use("/api/seller", sellerRoutes);
 app.use("/api/customer", customerRoutes);
+app.use("/api/parts", partsRoutes);
 
 app.get("/", (req, res) => {
 	res.json({
