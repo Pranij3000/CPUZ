@@ -19,63 +19,64 @@ import SellerRegistration from "./pages/SellerRegistration.jsx";
 import RootLayout from "./components/RootLayout.jsx";
 
 export default function App() {
-	useEffect(() => {
-		AOS.init({
-			duration: 1000,
-		});
-	}, []);
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
+  }, []);
 
-	return (
-		<>
-			<AuthProvider>
-				<BrowserRouter>
-					<Routes>
-						<Route path="/" element={<RootLayout children={<Homepage />} />}></Route>
-						<Route path="*" element={<RootLayout children={<Error />} />}></Route>
-						<Route path="/about" element={<RootLayout children={<About />} />}></Route>
-						<Route path="/contact-us" element={<RootLayout children={<Contact />} />}></Route>
-						<Route path="/components-listing" element={<RootLayout children={<ComponentsListing />} />}></Route>
-						<Route path="/become-a-seller" element={<RootLayout children={<SellerRegistration />} />}></Route>
+  return (
+    <>
+      <AuthProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<RootLayout children={<Homepage />} />}></Route>
+            <Route path="*" element={<RootLayout children={<Error />} />}></Route>
+            <Route path="/about" element={<RootLayout children={<About />} />}></Route>
+            <Route path="/contact-us" element={<RootLayout children={<Contact />} />}></Route>
+            <Route path="/components-listing" element={<RootLayout children={<ComponentsListing />} />}></Route>
+            <Route path="/become-a-seller" element={<RootLayout children={<SellerRegistration />} />}></Route>
 
-						{/* Reverse Protected Routes - Only accessible when NOT logged in */}
-						<Route
-							path="/login"
-							element={
-								<RootLayout
-									children={
-										<ReverseProtectedRoute>
-											<CustomerLogin />
-										</ReverseProtectedRoute>
-									}
-								/>
-							}></Route>
-						<Route
-							path="/register"
-							element={
-								<RootLayout
-									children={
-										<ReverseProtectedRoute>
-											<CustomerSignUp />
-										</ReverseProtectedRoute>
-									}
-								/>
-							}></Route>
+            <Route
+              path="/login"
+              element={
+                <RootLayout
+                  children={
+                    <ReverseProtectedRoute>
+                      <CustomerLogin />
+                    </ReverseProtectedRoute>
+                  }
+                />
+              }
+            />
+            <Route
+              path="/register"
+              element={
+                <RootLayout
+                  children={
+                    <ReverseProtectedRoute>
+                      <CustomerSignUp />
+                    </ReverseProtectedRoute>
+                  }
+                />
+              }
+            />
 
-						{/* Protected Routes - Only accessible when logged in */}
-						<Route
-							path="/build-your-pc"
-							element={
-								<RootLayout
-									children={
-										<ProtectedRoute>
-											<BuildYourPc />
-										</ProtectedRoute>
-									}
-								/>
-							}></Route>
-					</Routes>
-				</BrowserRouter>
-			</AuthProvider>
-		</>
-	);
+            <Route
+              path="/build-your-pc"
+              element={
+                <RootLayout
+                  children={
+                    <ProtectedRoute>
+                      <BuildYourPc />
+                    </ProtectedRoute>
+                  }
+                />
+              }
+            />
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
+    </>
+  );
 }
