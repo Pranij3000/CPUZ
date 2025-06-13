@@ -1,0 +1,9 @@
+.overlay {
+  opacity: 0;
+  visibility: hidden;
+  backdrop-filter: blur(6px);
+  &.show {
+    opacity: 1;
+    visibility: visible;
+  }
+}
