@@ -5,6 +5,7 @@ import PrimaryButton from "../button/PrimaryButton";
 export default function PCBuilderCard({ component, svg }) {
   const [popup, setPopup] = useState(false);
   const [items, setItems] = useState([]);
+  const [filteredItems, setFilteredItems] = useState([]);
 
   const selectedComponent = component.toLowerCase().replace(/\s+/g, "");
 
@@ -26,6 +27,10 @@ export default function PCBuilderCard({ component, svg }) {
         .catch((err) => console.error("Fetch error:", err));
     }
   }, [popup, selectedComponent]);
+
+  useEffect(() => {
+    setFilteredItems([...items]);
+  }, [items]);
 
   return (
     <>
@@ -59,7 +64,7 @@ export default function PCBuilderCard({ component, svg }) {
           </div>
         </div>
         <div className="row">
-          {items.map((item, index) => (
+          {filteredItems.map((item, index) => (
             <div key={index} className="col-12 col-md-6 col-xl-4">
               <p>{item.name || item.model}</p>
             </div>
