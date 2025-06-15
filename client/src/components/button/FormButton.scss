@@ -1,8 +1,12 @@
 .form-button {
-  width: 100%;
-  transition: all 0.3s ease-in-out;
-  font-size: 1.6rem;
-  &:hover {
-    filter: brightness(1.5);
-  }
+	width: fit-content;
+	transition: all 0.3s ease-in-out;
+	font-size: 1.6rem;
+
+	&:hover {
+		filter: brightness(1.5);
+	}
+	&.width-100 {
+		width: 100% !important;
+	}
 }

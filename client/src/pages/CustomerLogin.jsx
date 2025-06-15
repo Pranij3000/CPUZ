@@ -130,7 +130,7 @@ export default function CustomerLogin() {
 													<PasswordInput label="Password" name="password" value={formData.password} onChange={handleInput} />
 												</div>
 												<div className="col-12">
-													<FormButton placeholder={loading ? "Signing in..." : "Sign In"} type="submit" disabled={loading} />
+													<FormButton placeholder={loading ? "Signing in..." : "Sign In"} type="submit" disabled={loading} extraClass="width-100" />
 												</div>
 											</div>
 										</div>

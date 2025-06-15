@@ -144,7 +144,7 @@ export default function SellerRegistration() {
 										<TextInput label="Locations" name="locations" value={formData.locations} onChange={handleInput} />
 									</div>
 									<div className="col-12">
-										<FormButton placeholder={loading ? "Registering..." : "Register as Seller"} type="submit" disabled={loading} />
+										<FormButton placeholder={loading ? "Registering..." : "Register as Seller"} type="submit" disabled={loading} extraClass="width-100" />
 									</div>
 								</div>
 							</div>

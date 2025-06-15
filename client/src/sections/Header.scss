@@ -85,6 +85,8 @@
 		}
 		.overlay {
 			backdrop-filter: blur(12px);
+			opacity: 1;
+			visibility: visible;
 		}
 	}
 }
