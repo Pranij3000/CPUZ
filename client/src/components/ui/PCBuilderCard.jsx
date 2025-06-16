@@ -85,15 +85,15 @@ export default function PCBuilderCard({ component, svg, selectedItem, onComponen
 					{selectedItem ? (
 						<div className="selected-component border-top-black-100 pt-8">
 							<div className="row">
-								<div className="col-4">
-									<div className="img-wrapper">
+								<div className="col-3">
+									<div className="img-wrapper mx-auto">
 										<img src={selectedItem.imageURL} alt="" className="img-fluid" />
 									</div>
 								</div>
-								<div className="col-8">
-									<div className="selected-component-content d-flex flex-column flex-md-row justify-content-center justify-content-md-around align-items-center text-center">
-										<h6 className="text-black">{selectedItem.name}</h6>
-										<h4 className="text-secondary">${selectedItem.price}</h4>
+								<div className="col-9">
+									<div className="selected-component-content d-flex flex-column flex-md-row justify-content-center justify-content-md-between align-items-center text-center">
+										<h6 className="text-light-bg">{selectedItem.name}</h6>
+										<h4 className="text-light-bg">${selectedItem.price}</h4>
 									</div>
 								</div>
 							</div>

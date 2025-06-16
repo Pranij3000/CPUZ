@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import PCBuilderCard from "../components/ui/PCBuilderCard";
 import "./PCBuilder.scss";
+import PrimaryButton from "../components/button/FormButton";
 
 import cpu from "../../assets/images/icons/cpu.svg";
 import motherboard from "../../assets/images/icons/motherboard.svg";
@@ -65,23 +66,23 @@ export default function PCBuilder() {
 										</div>
 										<div className="col-4 col-md-5 col-lg-6">
 											<div className="selected-item py-8 d-flex">
-												<p>{component.name}</p>
+												<p className="text-light-bg">{component.name}</p>
 											</div>
 										</div>
 										<div className="col-4">
 											<div className="component-price py-8 text-end">
-												<p>${component.price}</p>
+												<p className="text-black">${component.price}</p>
 											</div>
 										</div>
 									</React.Fragment>
 								))
 							) : (
-								<p>No components selected</p>
+								<></>
 							)}
 						</div>
 					</div>
 
-					<div className="pc-builder-total">
+					<div className="pc-builder-total mb-20">
 						<div className="row">
 							<div className="col-8">
 								<h5 className="text-black">Total</h5>
@@ -90,6 +91,10 @@ export default function PCBuilder() {
 								<h5 className="text-secondary text-end">${calculateTotal().toFixed(2)}</h5>
 							</div>
 						</div>
+					</div>
+
+					<div className="button-wrapper d-flex justify-content-end">
+						<PrimaryButton placeholder="Order Now" />
 					</div>
 				</div>
 			</div>
