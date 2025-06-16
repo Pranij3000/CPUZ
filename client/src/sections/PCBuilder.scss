@@ -8,3 +8,16 @@
 		visibility: visible;
 	}
 }
+
+.pc-builder-bottom {
+	h5 {
+		font-weight: 400;
+	}
+	.selected-item {
+		gap: 0.8rem;
+		h6,
+		p {
+			word-wrap: break-word;
+		}
+	}
+}
