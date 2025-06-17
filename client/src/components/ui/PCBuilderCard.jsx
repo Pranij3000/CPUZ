@@ -81,8 +81,9 @@ export default function PCBuilderCard({ component, svg, selectedItem, onComponen
 						</div>
 					</div>
 				</div>
-				<div className="pc-part pt-16">
-					{selectedItem ? (
+
+				{selectedItem ? (
+					<div className="pc-part pt-16">
 						<div className="selected-component border-top-black-100 pt-8">
 							<div className="row">
 								<div className="col-3">
@@ -98,10 +99,10 @@ export default function PCBuilderCard({ component, svg, selectedItem, onComponen
 								</div>
 							</div>
 						</div>
-					) : (
-						<p>No Components Selected</p>
-					)}
-				</div>
+					</div>
+				) : (
+					<></>
+				)}
 			</div>
 
 			<div className={`popup bg-main-gradient rounded-8 border-top-white px-20 px-xl-40 py-20 ${popup ? "show" : ""}`}>

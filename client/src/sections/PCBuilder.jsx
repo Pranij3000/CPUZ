@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import PCBuilderCard from "../components/ui/PCBuilderCard";
 import "./PCBuilder.scss";
-import PrimaryButton from "../components/button/FormButton";
+import FormButton from "../components/button/FormButton.jsx";
 
 import cpu from "../../assets/images/icons/cpu.svg";
 import motherboard from "../../assets/images/icons/motherboard.svg";
@@ -16,6 +16,7 @@ import monitor from "../../assets/images/icons/monitor.svg";
 
 export default function PCBuilder() {
 	const [selectedComponents, setSelectedComponents] = useState({});
+	const [isSubmitting, setIsSubmitting] = useState(false);
 
 	const components = [
 		{ component: "CPU", svg: cpu },
@@ -40,6 +41,64 @@ export default function PCBuilder() {
 		return Object.values(selectedComponents).reduce((total, component) => {
 			return total + (component?.price || 0);
 		}, 0);
+	};
+
+	const handleOrderSubmit = async () => {
+		// Check if user has selected at least one component
+		const hasComponents = Object.keys(selectedComponents).length > 0;
+
+		if (!hasComponents) {
+			alert("Please select at least one component before placing an order.");
+			return;
+		}
+
+		setIsSubmitting(true);
+
+		try {
+			// Prepare components data for the order
+			const componentsArray = Object.entries(selectedComponents).map(([componentType, component]) => ({
+				componentType,
+				name: component.name,
+				price: component.price,
+				imageURL: component.imageURL,
+			}));
+
+			const orderData = {
+				components: componentsArray,
+				totalAmount: calculateTotal(),
+			};
+
+			const response = await fetch("http://localhost:5000/api/orders/create", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				credentials: "include", // Important: Include cookies for authentication
+				body: JSON.stringify(orderData),
+			});
+
+			const data = await response.json();
+
+			if (response.ok) {
+				alert("Order placed successfully!");
+				console.log("Order created:", data.order);
+
+				// Optionally reset the form after successful order
+				setSelectedComponents({});
+			} else {
+				// Handle different error cases
+				if (response.status === 401) {
+					alert("Please log in to place an order.");
+				} else {
+					alert(data.message || "Failed to place order. Please try again.");
+				}
+			}
+		} catch (error) {
+			console.error("Error placing order:", error);
+			alert("An error occurred while placing the order. Please try again.");
+		} finally {
+			setIsSubmitting(false);
+		}
 	};
 
 	const selectedComponentsList = Object.entries(selectedComponents).filter(([key, value]) => value !== null);
@@ -94,7 +153,7 @@ export default function PCBuilder() {
 					</div>
 
 					<div className="button-wrapper d-flex justify-content-end">
-						<PrimaryButton placeholder="Order Now" />
+						<FormButton type="button" placeholder={isSubmitting ? "Placing Order..." : "Order Now"} onClick={handleOrderSubmit} disabled={isSubmitting} />
 					</div>
 				</div>
 			</div>
