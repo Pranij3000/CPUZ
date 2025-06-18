@@ -1,0 +1,34 @@
+.warning {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 13;
+	opacity: 0;
+	visibility: hidden;
+	cursor: none;
+	.warning-wrapper {
+		position: fixed;
+		left: 50%;
+		top: 50%;
+		width: 90%;
+		transform: translate(-50%, -50%);
+		max-width: 52rem;
+		z-index: 12;
+		.button-wrapper {
+			max-width: 20rem;
+		}
+	}
+	.overlay {
+		&.active {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+	&.active {
+		opacity: 1;
+		visibility: visible;
+		cursor: auto;
+	}
+}

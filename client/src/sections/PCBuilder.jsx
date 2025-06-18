@@ -3,6 +3,7 @@ import { useState } from "react";
 import PCBuilderCard from "../components/ui/PCBuilderCard";
 import "./PCBuilder.scss";
 import FormButton from "../components/button/FormButton.jsx";
+import Warning from "../components/ui/Warning.jsx";
 
 import cpu from "../../assets/images/icons/cpu.svg";
 import motherboard from "../../assets/images/icons/motherboard.svg";
@@ -17,6 +18,7 @@ import monitor from "../../assets/images/icons/monitor.svg";
 export default function PCBuilder() {
 	const [selectedComponents, setSelectedComponents] = useState({});
 	const [isSubmitting, setIsSubmitting] = useState(false);
+	const [warningSign, setWarningSign] = useState({ placeholder: "", openWarning: false, buttonMsg: "" });
 
 	const components = [
 		{ component: "CPU", svg: cpu },
@@ -48,7 +50,11 @@ export default function PCBuilder() {
 		const hasComponents = Object.keys(selectedComponents).length > 0;
 
 		if (!hasComponents) {
-			alert("Please select at least one component before placing an order.");
+			setWarningSign({
+				placeholder: "Please select at least one component before placing an order.",
+				openWarning: true,
+				buttonMsg: "Ok! I got it",
+			});
 			return;
 		}
 
@@ -81,7 +87,6 @@ export default function PCBuilder() {
 
 			if (response.ok) {
 				alert("Order placed successfully!");
-				console.log("Order created:", data.order);
 
 				// Optionally reset the form after successful order
 				setSelectedComponents({});
@@ -156,6 +161,8 @@ export default function PCBuilder() {
 						<FormButton type="button" placeholder={isSubmitting ? "Placing Order..." : "Order Now"} onClick={handleOrderSubmit} disabled={isSubmitting} />
 					</div>
 				</div>
+
+				<Warning placeholder={warningSign.placeholder} openWarning={warningSign.openWarning} buttonMsg={warningSign.buttonMsg} />
 			</div>
 		</section>
 	);
