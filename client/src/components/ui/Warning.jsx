@@ -2,11 +2,14 @@ import { useState, useEffect } from "react";
 import "./Warning.scss";
 
 import PrimaryButton from "../button/PrimaryButton";
-export default function Warning({ placeholder, openWarning, buttonMsg }) {
-	const [warning, setWarning] = useState(true);
+export default function Warning({ placeholder, openWarning, buttonMsg, setWarningSign }) {
+	const [warning, setWarning] = useState(false);
 
 	const closeWarning = () => {
-		setWarning(false);
+		setWarningSign((prev) => ({
+			...prev,
+			openWarning: false,
+		}));
 	};
 
 	useEffect(() => {

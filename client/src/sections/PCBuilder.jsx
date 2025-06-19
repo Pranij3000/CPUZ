@@ -46,7 +46,6 @@ export default function PCBuilder() {
 	};
 
 	const handleOrderSubmit = async () => {
-		// Check if user has selected at least one component
 		const hasComponents = Object.keys(selectedComponents).length > 0;
 
 		if (!hasComponents) {
@@ -54,7 +53,9 @@ export default function PCBuilder() {
 				placeholder: "Please select at least one component before placing an order.",
 				openWarning: true,
 				buttonMsg: "Ok! I got it",
+				setWarningSign: { setWarningSign },
 			});
+
 			return;
 		}
 
@@ -86,21 +87,36 @@ export default function PCBuilder() {
 			const data = await response.json();
 
 			if (response.ok) {
-				alert("Order placed successfully!");
+				setWarningSign({
+					placeholder: "Order Placed Successfully",
+					openWarning: true,
+					buttonMsg: "Ok! got it",
+					setWarningSign: { setWarningSign },
+				});
 
 				// Optionally reset the form after successful order
 				setSelectedComponents({});
 			} else {
 				// Handle different error cases
 				if (response.status === 401) {
-					alert("Please log in to place an order.");
+					setWarningSign({
+						placeholder: "Log in to place an order.",
+						openWarning: true,
+						buttonMsg: "Log in",
+						setWarningSign: { setWarningSign },
+					});
 				} else {
 					alert(data.message || "Failed to place order. Please try again.");
 				}
 			}
 		} catch (error) {
 			console.error("Error placing order:", error);
-			alert("An error occurred while placing the order. Please try again.");
+			setWarningSign({
+				placeholder: "An error occurred while placing the order. ",
+				openWarning: true,
+				buttonMsg: "Try again",
+				setWarningSign: { setWarningSign },
+			});
 		} finally {
 			setIsSubmitting(false);
 		}
