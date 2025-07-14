@@ -19,7 +19,7 @@ export const sendOrderNotificationToSellers = async (sellerEmails, orderDetails)
     const htmlContent = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
         <h2 style="color: #333; text-align: center; margin-bottom: 30px;">
-          🖥️ New PC Build Order - CPUZ
+          New PC Build Order - CPUZ
         </h2>
         
         <div style="background-color: #f8f9fa; padding: 20px; border-radius: 5px; margin-bottom: 20px;">
@@ -28,7 +28,7 @@ export const sendOrderNotificationToSellers = async (sellerEmails, orderDetails)
           <p><strong>Customer:</strong> ${orderDetails.customerName}</p>
           <p><strong>Customer Email:</strong> ${orderDetails.customerEmail}</p>
           <p><strong>Order Date:</strong> ${new Date(orderDetails.orderDate).toLocaleDateString()}</p>
-          <p><strong>Total Amount:</strong> <span style="color: #28a745; font-size: 18px; font-weight: bold;">$${orderDetails.totalAmount}</span></p>
+          <p><strong>Estimated Total Amount:</strong> <span style="color: #28a745; font-size: 18px; font-weight: bold;">Rs ${orderDetails.totalAmount}</span></p>
         </div>
 
         <div style="margin-bottom: 20px;">
@@ -38,7 +38,7 @@ export const sendOrderNotificationToSellers = async (sellerEmails, orderDetails)
               <tr style="background-color: #343a40; color: white;">
                 <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Component Type</th>
                 <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Product Name</th>
-                <th style="padding: 12px; text-align: right; border: 1px solid #ddd;">Price</th>
+                <th style="padding: 12px; text-align: right; border: 1px solid #ddd;">Estimated Price</th>
               </tr>
             </thead>
             <tbody>
@@ -48,7 +48,7 @@ export const sendOrderNotificationToSellers = async (sellerEmails, orderDetails)
                 <tr style="border-bottom: 1px solid #ddd;">
                   <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold;">${component.componentType}</td>
                   <td style="padding: 12px; border: 1px solid #ddd;">${component.name}</td>
-                  <td style="padding: 12px; border: 1px solid #ddd; text-align: right; color: #28a745;">$${component.price}</td>
+                  <td style="padding: 12px; border: 1px solid #ddd; text-align: right; color: #28a745;">Rs ${(component.price * 140).toFixed(2)}</td>
                 </tr>
               `
                 )
